@@ -1,5 +1,5 @@
 import express from 'express';
-
+import cors from 'cors';
 import mysql from 'mysql';
 
 const app = express();
@@ -12,6 +12,7 @@ const db = mysql.createConnection({
 });
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.json("hola esto es el backend");
@@ -26,10 +27,10 @@ app.get("/Libros", (req,res)=>{
 } )
 
 app.post("/Libros",(req,res)=>{
-    const q ="INSERT INTO libros(`title`, `desc`, `precio`, `cover`) VALUES (?)"
+    const q ="INSERT INTO libros(`title`, `descr`, `price`, `cover`) VALUES (?)"
     const values =[
      req.body.title,
-     req.body.desc,
+     req.body.descr,
      req.body.price,
      req.body.cover   
     ];
@@ -41,9 +42,16 @@ app.post("/Libros",(req,res)=>{
 })
 
 
+app.delete("/Libros/:id",(req,res)=>{
+    const bookId = req.params.id;
+    const q = "DELETE FROM libros WHERE id = ?";
+    db.query(q,[bookId],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("Libro eliminado con éxito")
+    }
+)})
+
+
 app.listen(8800, () => {
-    console.log("Conectado al Backend!");
-})
-app.listen(3000, () => {
     console.log("Conectado al Backend!");
 })
