@@ -1,4 +1,4 @@
-.App{
+.App {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,24 +8,28 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-.books{
+
+.books {
     display: flex;
 }
-.book{
+
+.book {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin: 20px;
-   
+
 }
-img{
+
+img {
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
     background-color: rgb(169, 224, 206);
 }
-.delete{
+
+.delete {
     border: none;
     padding: 3px 5px;
     background-color: rgb(255, 255, 255);
@@ -33,7 +37,30 @@ img{
     border-radius: 5px;
     cursor: pointer;
 }
-.update{
+
+.update {
+    border: none;
+    padding: 3px 5px;
+    background-color: rgb(255, 255, 255);
+    color: blue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    gap: 20px;
+    color: white;
+
+}
+
+.formButton {
     border: none;
     padding: 3px 5px;
     background-color: rgb(255, 255, 255);
